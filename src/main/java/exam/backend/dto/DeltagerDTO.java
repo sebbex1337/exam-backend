@@ -19,7 +19,7 @@ public class DeltagerDTO {
     private Køn køn;
     private String email;
     private String klub;
-    private String landkode;
+    private String landKode;
     private List<Integer> disciplinIds;
     private List<Integer> resultatIds;
 }

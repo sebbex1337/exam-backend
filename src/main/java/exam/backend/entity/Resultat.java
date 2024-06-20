@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,7 +21,7 @@ public class Resultat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private LocalDateTime dato;
+    private LocalDate dato;
 
     @ManyToOne
     @JsonBackReference
@@ -35,7 +36,7 @@ public class Resultat {
 
     private double resultat;
 
-    public Resultat(LocalDateTime dato, Disciplin disciplin, Deltager deltager, double resultat) {
+    public Resultat(LocalDate dato, Disciplin disciplin, Deltager deltager, double resultat) {
         this.dato = dato;
         this.disciplin = disciplin;
         this.disciplinNavn = disciplin.getNavn();

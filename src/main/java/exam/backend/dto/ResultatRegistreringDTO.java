@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -14,6 +15,6 @@ import java.time.LocalDateTime;
 public class ResultatRegistreringDTO {
     private int deltagerId;
     private double resultat;
-    private LocalDateTime dato;
+    private LocalDate dato;
     private int disciplinId;
 }

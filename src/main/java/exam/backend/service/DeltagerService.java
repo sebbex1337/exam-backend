@@ -66,7 +66,7 @@ public class DeltagerService {
         deltager.setKøn(deltagerDTO.getKøn());
         deltager.setEmail(deltagerDTO.getEmail());
         deltager.setKlub(deltagerDTO.getKlub());
-        deltager.setLandKode(deltagerDTO.getLandkode());
+        deltager.setLandKode(deltagerDTO.getLandKode());
 
         // Tjek om disciplinIds og resultatIds er null eller tomme
         // Hvis de er null eller tomme springer vi if statement over

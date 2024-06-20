@@ -36,9 +36,9 @@ public class ResultatController {
         return ResponseEntity.ok("Resultater registreret");
     }
 
-    @PutMapping("/{disciplinId}")
-    public Resultat opdaterResultat(@PathVariable int disciplinId, @RequestBody ResultatDTO resultat) {
-        return resultatService.opdaterResultat(disciplinId, resultat);
+    @PutMapping("/{id}")
+    public Resultat opdaterResultat(@PathVariable int id, @RequestBody ResultatDTO resultat) {
+        return resultatService.opdaterResultat(id, resultat);
     }
 
     @DeleteMapping("/{resultatId}")

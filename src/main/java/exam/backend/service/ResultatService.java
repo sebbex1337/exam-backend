@@ -40,8 +40,8 @@ public class ResultatService {
         resultatRepository.save(nyResultat);
     }
 
-    public Resultat opdaterResultat(int disciplinId, ResultatDTO resultat) {
-        Resultat eksisterendeResultat = resultatRepository.findById(disciplinId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Resultat ikke fundet"));
+    public Resultat opdaterResultat(int id, ResultatDTO resultat) {
+        Resultat eksisterendeResultat = resultatRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Resultat ikke fundet"));
         return getResultat(resultat, eksisterendeResultat);
     }
 

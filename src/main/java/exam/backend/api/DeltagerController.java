@@ -28,7 +28,7 @@ public class DeltagerController {
         return deltagerService.hentDeltager(id);
     }
 
-    @GetMapping("/søg/{navn}")
+    @GetMapping("/search/{navn}")
     public List<Deltager> søgDeltagere(@PathVariable String navn) {
         return deltagerService.søgDeltagere(navn);
     }
@@ -46,6 +46,6 @@ public class DeltagerController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> sletDeltager(@PathVariable int id) {
         deltagerService.sletDeltager(id);
-        return ResponseEntity.ok("Deltager med id " + id + " blev slettet");
+        return ResponseEntity.noContent().build();
     }
 }

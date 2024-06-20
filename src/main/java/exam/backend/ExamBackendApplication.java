@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -56,18 +57,20 @@ public class ExamBackendApplication {
             deltagerRepository.saveAll(Arrays.asList(dt1, dt2, dt3, dt4));
 
             // Opret resultater
+            DecimalFormat df = new DecimalFormat("0.0000");
             Random rand = new Random();
             for (Deltager deltager : Arrays.asList(dt1, dt2, dt3)) {
                 for (Disciplin disciplin : deltager.getDiscipliner()) {
                     double resultat = disciplin.getResultatType() == ResultatType.TID ? rand.nextDouble() * 10 : rand.nextDouble() * 100;
-                    Resultat r = new Resultat(LocalDateTime.now(), disciplin, deltager, resultat);
+                    double formattedResultat = Double.parseDouble(df.format(resultat).replace(",", "."));
+                    Resultat r = new Resultat(LocalDate.now(), disciplin, deltager, formattedResultat);
                     resultatRepository.save(r);
                 }
             }
 
 
             // Opret resultater for Armand Duplantis
-            Resultat r1 = new Resultat(LocalDateTime.now(), d6, dt4, 6.24);
+            Resultat r1 = new Resultat(LocalDate.now(), d6, dt4, 6.24);
             resultatRepository.save(r1);
 
             System.out.println("Data imported.");

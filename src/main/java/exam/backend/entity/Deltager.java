@@ -36,7 +36,7 @@ public class Deltager {
     @JsonManagedReference
     private List<Disciplin> discipliner = new ArrayList<>();
 
-    @OneToMany(mappedBy = "deltager")
+    @OneToMany(mappedBy = "deltager", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonManagedReference
     private List<Resultat> resultater = new ArrayList<>();
 
