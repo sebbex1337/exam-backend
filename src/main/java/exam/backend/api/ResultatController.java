@@ -1,6 +1,7 @@
 package exam.backend.api;
 
 import exam.backend.dto.ResultatDTO;
+import exam.backend.dto.ResultatGETDTO;
 import exam.backend.dto.ResultatRegistreringDTO;
 import exam.backend.entity.Resultat;
 import exam.backend.service.ResultatService;
@@ -19,7 +20,7 @@ public class ResultatController {
     }
 
     @GetMapping("/disciplin/{disciplinId}/deltagere")
-    public List<Resultat> hentResultaterMedDeltagere(@PathVariable int disciplinId) {
+    public List<ResultatGETDTO> hentResultaterMedDeltagere(@PathVariable int disciplinId) {
         return resultatService.hentResultater(disciplinId);
     }
 

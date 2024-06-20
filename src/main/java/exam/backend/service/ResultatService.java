@@ -1,6 +1,7 @@
 package exam.backend.service;
 
 import exam.backend.dto.ResultatDTO;
+import exam.backend.dto.ResultatGETDTO;
 import exam.backend.dto.ResultatRegistreringDTO;
 import exam.backend.entity.Resultat;
 import exam.backend.repository.DeltagerRepository;
@@ -52,8 +53,9 @@ public class ResultatService {
         resultatRepository.deleteById(resultatId);
     }
 
-    public List<Resultat> hentResultater(int disciplinId) {
-        return resultatRepository.findAllByDisciplinId(disciplinId);
+    public List<ResultatGETDTO> hentResultater(int disciplinId) {
+        List<Resultat> resultater = resultatRepository.findAllByDisciplinId(disciplinId);
+        return resultater.stream().map(this::mapResultatToDTO).toList();
     }
 
     // Bruger hjælpe funktion så jeg fjerne kode duplikation
@@ -64,6 +66,16 @@ public class ResultatService {
         eksisterendeResultat.setDisciplinNavn(eksisterendeResultat.getDisciplin().getNavn());
         eksisterendeResultat.setResultat(resultat.getResultat());
         return resultatRepository.save(eksisterendeResultat);
+    }
+
+    private ResultatGETDTO mapResultatToDTO(Resultat resultat) {
+        ResultatGETDTO resultatGETDTO = new ResultatGETDTO();
+        resultatGETDTO.setId(resultat.getId());
+        resultatGETDTO.setDato(resultat.getDato());
+        resultatGETDTO.setDeltager(resultat.getDeltager());
+        resultatGETDTO.setDisciplinId(resultat.getDisciplin().getId());
+        resultatGETDTO.setResultat(resultat.getResultat());
+        return resultatGETDTO;
     }
 
 }
