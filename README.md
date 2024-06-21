@@ -1,14 +1,8 @@
-# Please read before use
+# Exam atletik
+## Forudsætninger
 
-This is a simple Java Spring template. Please change the name of the packages if you want to use a different name than spring-template.
-
-Go to src/main/java/ and change the name of the package
-
-Currently group Id is "template", so if you change that remember to change it in pom.xml file
-
-Currently artifactId is "spring-template", so if you change that remember to change it in pom.xml file
-
-Remember to change other names in the pom.xml file if you want to change the name of the project
+- Java 21 eller nyere
+- Maven
 
 ### Dependencies
 - Lombok
@@ -19,3 +13,13 @@ Remember to change other names in the pom.xml file if you want to change the nam
 - H2 Database
 - Swagger UI
 
+## Sådan kører du projektet
+
+1. Klon projektet
+2. Åben projektet i din foretrukne IDE
+3. Opret en database i MySQL
+4. Konfigurer databasen i `application.properties`
+5. Kør projektet
+6. Åben din browser og naviger til `http://localhost:8080`
+7. Tryk på `This is the API you get out-of-the-box` for at se endpoints
+8. Alle tests køre på H2 database af sig selv
